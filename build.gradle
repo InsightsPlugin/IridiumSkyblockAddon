@@ -18,5 +18,5 @@ repositories {
 dependencies {
     compileOnly 'com.github.FrankHeijden:Insights:v5.1.4'
     compileOnly 'com.destroystokyo.paper:paper-api:1.15.2-R0.1-SNAPSHOT'
-    compileOnly name: 'IridiumSkyblock-2.4.1'
+    compileOnly name: 'IridiumSkyblock-2.4.8'
 }

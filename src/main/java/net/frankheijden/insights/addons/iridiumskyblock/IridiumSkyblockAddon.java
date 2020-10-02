@@ -14,7 +14,11 @@ public class IridiumSkyblockAddon extends CacheAssistant {
 
     public Selection adapt(Island island) {
         if (island == null) return null;
-        return new Selection(island.getPos1(), island.getPos2());
+        Location min = island.getPos1().clone();
+        min.setY(0);
+        Location max = island.getPos2().clone();
+        max.setY(max.getWorld().getMaxHeight() - 1);
+        return new Selection(min, max);
     }
 
     @Override
