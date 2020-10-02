@@ -9,7 +9,7 @@ import org.bukkit.Location;
 public class IridiumSkyblockAddon extends CacheAssistant {
 
     public IridiumSkyblockAddon() {
-        super("IridiumSkyblock", "IridiumSkyblock", "island", "1.0.0");
+        super("IridiumSkyblock", "IridiumSkyblock", "island", "1.0.1");
     }
 
     public Selection adapt(Island island) {
