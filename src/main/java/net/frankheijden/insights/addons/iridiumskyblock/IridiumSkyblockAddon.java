@@ -1,7 +1,7 @@
 package net.frankheijden.insights.addons.iridiumskyblock;
 
-import com.iridium.iridiumskyblock.IridiumSkyblock;
 import com.iridium.iridiumskyblock.Island;
+import com.iridium.iridiumskyblock.managers.IslandManager;
 import net.frankheijden.insights.entities.Area;
 import net.frankheijden.insights.entities.CacheAssistant;
 import net.frankheijden.insights.entities.CuboidSelection;
@@ -12,24 +12,24 @@ import java.util.Collections;
 public class IridiumSkyblockAddon extends CacheAssistant {
 
     public IridiumSkyblockAddon() {
-        super("IridiumSkyblock", "IridiumSkyblock", "island", "1.1.0");
+        super("IridiumSkyblock", "IridiumSkyblock", "island", "1.1.1");
     }
 
     public String getId(Island island) {
-        return getPluginName() + "@" + island.getId();
+        return getPluginName() + "@" + island.id;
     }
 
     public Area adapt(Island island) {
         if (island == null) return null;
-        Location min = island.getPos1().clone();
+        Location min = island.pos1.clone();
         min.setY(0);
-        Location max = island.getPos2().clone();
+        Location max = island.pos2.clone();
         max.setY(max.getWorld().getMaxHeight() - 1);
         return Area.from(this, getId(island), Collections.singletonList(new CuboidSelection(min, max)));
     }
 
     @Override
     public Area getArea(Location location) {
-        return adapt(IridiumSkyblock.getIslandManager().getIslandViaLocation(location));
+        return adapt(IslandManager.getIslandViaLocation(location));
     }
 }
