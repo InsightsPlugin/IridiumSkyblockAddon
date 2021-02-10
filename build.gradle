@@ -2,9 +2,9 @@ plugins {
     id 'java'
 }
 
-String packagePath = 'net.frankheijden.insights.addons.iridiumskyblock'
+String packagePath = 'dev.frankheijden.insights.addons.iridiumskyblock'
 group = packagePath
-version = '1.1.1'
+version = '2.0.0'
 description = 'IridiumSkyBlockAddon'
 sourceCompatibility = '1.8'
 
@@ -16,7 +16,12 @@ repositories {
 }
 
 dependencies {
-    compileOnly 'com.github.InsightsPlugin:Insights:v5.8.0'
-    compileOnly 'com.destroystokyo.paper:paper-api:1.16.4-R0.1-SNAPSHOT'
+    compileOnly 'com.github.InsightsPlugin:Insights:feature~addons-SNAPSHOT'
+    compileOnly 'com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT'
     compileOnly 'com.iridium:IridiumSkyblock:2.6.5'
+}
+
+blossom {
+    replaceTokenIn 'src/main/java/dev/frankheijden/insights/addons/iridiumskyblock/IridiumSkyblockAddon.java'
+    replaceToken '{version}', version
 }
